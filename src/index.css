@@ -928,7 +928,7 @@ address.footer-contact-link { max-width: 30ch; }
     content: "";
     width: 160px;
     height: 12px;
-    background-image: url('../images/connect-line.png');
+    background-image: './assets/images/connect-line.png';
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

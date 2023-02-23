@@ -13,15 +13,15 @@ import { mainnet, goerli } from "wagmi/chains";
 
 const chains = [goerli, mainnet];
 
-const projectID = import.meta.env.PROJECT_ID
-const appName = import.meta.env.APP_NAME
+const projectID = import.meta.env.VITE_PROJECT_ID
+const appName = import.meta.env.VITE_APP_NAME
 
-const walletVersion = import.meta.env.WALLET_VERSION ?? "1"
+const walletVersion = import.meta.env.VITE_WALLET_VERSION 
 
 console.log(projectID)
 
 // Wagmi client
-const { provider } = configureChains(chains, [
+const { provider, webSocketProvider } = configureChains(chains, [
     walletConnectProvider({ projectId: projectID }),
 ]);
 const wagmiClient = createClient({
@@ -33,6 +33,7 @@ const wagmiClient = createClient({
         chains,
     }),
     provider,
+    webSocketProvider
 });
 
 // Web3Modal Ethereum Client

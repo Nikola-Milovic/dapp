@@ -15,18 +15,18 @@ const Header = () => {
     };
 
     useEffect(() => {
-        const handleScroll = () => {
-            const header = document.querySelector("[data-header]");
-            if (window.scrollY > 300) {
-                header?.classList.add("active");
-            } else {
-                header?.classList.remove("active");
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        /* const handleScroll = () => { */
+        /*     const header = document.querySelector("[data-header]"); */
+        /*     if (window.scrollY > 300) { */
+        /*         header?.classList.add("active"); */
+        /*     } else { */
+        /*         header?.classList.remove("active"); */
+        /*     } */
+        /* }; */
+        /* window.addEventListener("scroll", handleScroll); */
+        /* return () => { */
+        /*     window.removeEventListener("scroll", handleScroll); */
+        /* }; */
     }, []);
 
     return (

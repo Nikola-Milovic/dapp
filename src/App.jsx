@@ -4,6 +4,9 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import { Trend } from './components/Trend';
 import { Instructions } from './components/Instructions';
+
+import { Chain, useAccount, useContract, useEnsName, useEnsResolver, useNetwork, useProvider } from 'wagmi'
+import abi from "./abi.json";
 import {
     QueryClient,
     QueryClientProvider,
@@ -21,7 +24,7 @@ function useAnimations() {
         }
     }
 
-    const addEventOnElem = function(elem: any, type: any, callback: any) {
+    const addEventOnElem = function(elem, type, callback) {
         if (elem.length > 1) {
             for (let i = 0; i < elem.length; i++) {
                 elem[i].addEventListener(type, callback);
@@ -41,6 +44,11 @@ const isDev = import.meta.env.DEV
 
 function App() {
     const queryClient = new QueryClient()
+
+    const contract = useContract({
+        address: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+        abi: abi,
+    })
 
     useAnimations()
 
