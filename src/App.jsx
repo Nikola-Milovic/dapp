@@ -2,11 +2,10 @@ import { Wallet } from './wallet';
 import { useEffect } from 'react';
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Telegram from './components/Telegram'
 import { Trend } from './components/Trend';
 import { Instructions } from './components/Instructions';
 
-import { Chain, useAccount, useContract, useEnsName, useEnsResolver, useNetwork, useProvider } from 'wagmi'
-import abi from "./abi.json";
 import {
     QueryClient,
     QueryClientProvider,
@@ -45,16 +44,12 @@ const isDev = import.meta.env.DEV
 function App() {
     const queryClient = new QueryClient()
 
-    const contract = useContract({
-        address: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
-        abi: abi,
-    })
-
     useAnimations()
 
     return (
         <QueryClientProvider client={queryClient}>
             <Wallet>
+                <Telegram/>
                 <>
                     <Header />
                     <main>
